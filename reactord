@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export IFS=$'\t\n'
+export REACTOR_HOME=/tmp/reactor
+export REACTOR_BIN=~/code/reactorfs
+
+pushd "${REACTOR_HOME}" >/dev/null
+	for file in $(find .); do {
+		if [ -f "${file}" ]; then {
+		file_name="${file##*/}"
+		file_path_tmp="${file%%${file_name}}"
+		file_path="${file_path_tmp##.}"
+		file_extension="${file_name##*.}"
+		echo "[INFO] processing $file_path$file_name"
+		. ${REACTOR_BIN}/rules/typer "${file_name}"
+		${REACTOR_BIN}/rules/toolkit.php ${QUERY} "${file_path}" "${file_name}" "${file_extension}"
+		}; fi
+	}; done
+popd  >/dev/null

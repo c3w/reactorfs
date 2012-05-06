@@ -1,0 +1,17 @@
+reactorFS SQL Schema
+
+reactorfs
+	> storage types
+		storage_type_id, type, command
+		1, rsyncd, rsync %%FILENAME%%
+		2, rsync over ssh
+		3, http(s) post
+	> storage
+		storage_id, storage_type_id, storage_host, storage_domain
+		1, 1, cluster.local
+	> storage_tags
+		storage_tag_id, storage_id, tag
+	> files
+		file_id, storage_id, file_path, file_name
+		1, 1, SQL/20120506/, database.sql.tgz
+	

@@ -1,0 +1,16 @@
+### reactorFS TODO - Some of these may be SEVERE!
+
+. pushing same path and filename will result in two(2) stores
+	. suggest appending -1 rev controls or queuing system for dupes
+
+. error (mis)handleing could result in lost data
+
+. toolkit.php is pushing its limit - need to branch out to real logic and make toolkit a bundle of tools only, i.e. hashing should be taken out
+
+. would be nice to have some setup scripts or web gui setup for master and nodes
+
+. the `typer` case statement is prone to errors, possibly effecting the whole system
+	. suggest a json structure with error checking
+
+. does not handle multiple storage domains (i.e. rsync shares or other per single host)
+	. file insert SQL needs modding, at least

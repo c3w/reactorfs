@@ -1,0 +1,13 @@
+reactorFS INSTALLATION
+
+Requirements:
+	. Apache w/ .htaccess override
+	. PHP w/ MySQL module
+	. MySQLD
+	. RSync daemon
+
+Installation
+	. Configure your webserver(s) (1 master and 1 per store) to point to the html/ directory
+	. load the .sql schema and configure rules/mysql.inc.php
+	. start your rsyncd via --daemon flag or xinetd or similar
+	. set paths in reactord

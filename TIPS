@@ -1,0 +1,2 @@
+## copy our test file into the proper root
+rsync -r README localhost::reactorfs/test/
