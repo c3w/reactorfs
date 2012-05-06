@@ -1,0 +1,11 @@
+reactorFS :: distributed storage
+c3w@juicypop.net
+
+. unified namespace, traverable index
+. runs over TCP/IP using standard protocols
+. storage rules by filetype
+. scale performance and storage depth on-the-fly
+. make pristine backups from read-only stores
+
+rsync database.sql.tgz cluster::reactor/SQL/20120506
+http://cluster/reactor/SQL/20120506/
