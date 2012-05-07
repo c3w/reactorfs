@@ -27,7 +27,7 @@ mysql_data_seek($result, hexdec(md5("$file_path") % $rows));
 $stream=mysql_fetch_array($result);
 
 // move file to backend storag
-$cmd=sprintf("rsync -r %s%s %s::%s%s", $_ENV['REACTOR_HOME'], $file_path, $stream['storage_host'], $stream['storage_domain'], $file_path_only);
+$cmd=sprintf("rsync -r '%s%s' %s::'%s%s'", $_ENV['REACTOR_HOME'], $file_path, $stream['storage_host'], $stream['storage_domain'], $file_path_only);
 exec($cmd, $out, $status);
 if ( $status == 0 ){
 	// file reached desination

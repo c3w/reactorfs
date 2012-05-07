@@ -30,7 +30,7 @@ $rows=mysql_num_rows($result);
 printf("{folders}<br>");
 while ($stream=mysql_fetch_array($result)){
 printf("<a href=?key=%s&up=%s>%s</a><br>",
-	$stream["file_path"],
+	urlencode($stream["file_path"]),
 	$KEY,
 	$stream["file_path"]
 );
@@ -52,11 +52,11 @@ $rows=mysql_num_rows($result);
 printf("{file}<br>");
 while ($stream=mysql_fetch_array($result)){
 printf("<a href=react?key=%s&file=%s&up=%s>%s</a> (%s)<br>\n",
-	$stream["file_path"],
-	$stream["file_name"],
+	htmlentities($stream["file_path"]),
+	urlencode($stream["file_name"]),
 	$KEY,
 	$stream["file_name"],
-	$stream["storage_domain"]
+	urlencode($stream["storage_domain"])
 );
 }
 
