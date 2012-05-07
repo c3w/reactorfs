@@ -23,7 +23,10 @@ $rows=mysql_num_rows($result);
 $stream=mysql_fetch_array($result);
 $filename=sprintf("http://%s.local/%s/%s%s", $stream["storage_domain"], $stream["storage_domain"], $stream["file_path"], rawurlencode($stream["file_name"]));
 $handle=fopen($filename, "rb");
-$contents = stream_get_contents($handle);
+//$contents = stream_get_contents($handle);
+while(!feof($handle)){ // buffered fread to avoid memory exhaust
+$content=fread($handle,1048576); echo $content;
+}
 fclose($handle);
 printf("%s", $contents);
 ?>
