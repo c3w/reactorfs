@@ -5,7 +5,7 @@ export REACTOR_HOME=/tmp/reactor
 export REACTOR_BIN=~/code/reactorfs
 
 pushd "${REACTOR_HOME}" >/dev/null
-	for file in $(find .); do {
+	for file in $(find .|grep -v "\.\/\."); do {
 		if [ -f "${file}" ]; then {
 		file_name="${file##*/}"
 		file_path_tmp="${file%%${file_name}}"
