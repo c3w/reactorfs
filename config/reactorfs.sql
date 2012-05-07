@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `files`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `files` (
-  `file_id` bigint(20) NOT NULL,
+  `file_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `storage_id` int(11) DEFAULT NULL,
   `file_path` text,
   `file_name` text,
   PRIMARY KEY (`file_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `files` (
 
 LOCK TABLES `files` WRITE;
 /*!40000 ALTER TABLE `files` DISABLE KEYS */;
+INSERT INTO `files` VALUES (14,1,NULL,NULL),(15,2,'/test/','README'),(16,1,'/test/','README.mp3'),(17,1,'/','123.456'),(18,1,'/test/','123.456'),(19,2,'/test/123/','README'),(20,2,'/test/123/','README'),(21,2,'/test/909/','hello.txt'),(22,2,'/test/909/','hello.txt'),(23,2,'/pics/','c3w-day13.png');
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,6 +66,31 @@ LOCK TABLES `storage` WRITE;
 /*!40000 ALTER TABLE `storage` DISABLE KEYS */;
 INSERT INTO `storage` VALUES (1,1,'localhost','reactor1',NULL),(2,NULL,'127.0.0.1','reactor2',NULL);
 /*!40000 ALTER TABLE `storage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `storage_tags`
+--
+
+DROP TABLE IF EXISTS `storage_tags`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `storage_tags` (
+  `storage_tag_id` int(11) NOT NULL AUTO_INCREMENT,
+  `storage_id` int(11) DEFAULT NULL,
+  `tag` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`storage_tag_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `storage_tags`
+--
+
+LOCK TABLES `storage_tags` WRITE;
+/*!40000 ALTER TABLE `storage_tags` DISABLE KEYS */;
+INSERT INTO `storage_tags` VALUES (1,1,'mp3');
+/*!40000 ALTER TABLE `storage_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -100,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-05-06 13:09:46
+-- Dump completed on 2012-05-06 17:23:17
