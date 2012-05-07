@@ -1,0 +1,4 @@
+this is the reactorFS head-end server w/ php scripts
+. be sure your .htaccess overrides are enabled in apache config
+
+on your storage arrays, just point your web document root to the file store

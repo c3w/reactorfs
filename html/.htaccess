@@ -1,0 +1,4 @@
+AddType application/x-httpd-php .xml
+<Files ~ "^[^\.]+$">
+       ForceType application/x-httpd-php
+</Files>

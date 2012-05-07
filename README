@@ -1,6 +1,8 @@
 reactorFS :: distributed storage
 c3w@juicypop.net
 
+** NO WARRANTY **
+
 . unified namespace, traverable index
 . runs over TCP/IP using standard protocols
 . storage rules by filetype
@@ -9,3 +11,16 @@ c3w@juicypop.net
 
 rsync database.sql.tgz cluster::reactor/SQL/20120506
 http://cluster/reactor/SQL/20120506/
+
+
+How it Works
+	. rsync any file with full path information into the rsync share reactorfs::reactor
+	. a cron or daemon will:
+		. pick up /fully complete/ files
+		. follow filetype rules and push to backend storage
+		. update database so that the http(s) unified namespace is available
+ 		. the http(s) namespace uses php's fopen() to pull from backend storage
+
+Future of reactorFS
+	. multiple clouds for backend and redundant storage
+		(S3, EBS, Rackspace CloudFiles, etc)

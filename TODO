@@ -14,3 +14,6 @@
 
 . does not handle multiple storage domains (i.e. rsync shares or other per single host)
 	. file insert SQL needs modding, at least
+
+. need multiple go-back levels in the browser
+	. or at least a root
